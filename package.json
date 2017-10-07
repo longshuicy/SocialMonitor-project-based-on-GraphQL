@@ -1,0 +1,44 @@
+{
+  "name": "socialmonitorgraphql",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+	"test": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.16.0",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.3",
+    "debug": "~2.6.0",
+    "dotenv": "^4.0.0",
+    "express": "~4.14.1",
+    "express-graphql": "^0.6.3",
+    "fb": "^1.1.1",
+    "form-data": "^2.1.2",
+    "generate-schema": "^2.3.3",
+    "googleapis": "^19.0.0",
+    "graphql": "^0.9.6",
+    "instagram-node": "^0.5.8",
+    "mongoose": "^4.9.2",
+    "morgan": "~1.7.0",
+    "node-fetch": "^1.6.3",
+    "node-flickr": "^1.0.0",
+    "nodeweibo": "^2.0.4",
+    "promise": "^7.1.1",
+    "pug": "~2.0.0-beta10",
+    "request": "^2.81.0",
+    "serve-favicon": "~2.3.2",
+    "snoowrap": "^1.14.0",
+    "spotify-web-api-node": "^2.3.6",
+    "tumblr": "^0.4.1",
+    "tumblr.js": "^1.1.1",
+    "twitter": "^1.7.0"
+  },
+  "devDependencies": {
+    "babel-preset-node6": "^11.0.0",
+    "nodemon": "^1.11.0",
+    "concurrently": "^3.4.0",
+    "react-scripts": "0.9.5"
+  }
+}
