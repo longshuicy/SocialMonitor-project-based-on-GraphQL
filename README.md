@@ -6,8 +6,8 @@
 - [x] place ```.env``` file (which contains all the social media credentials and access tokens) in the root of this app's directory
 
 ## Run
-- type ```npm test``` to invoke the debugging mode. In this model, any changes in the source code will be reflected immediately upon save
 - ```npm start``` to invoke the production mode.
+- type ```npm test``` to invoke the debugging mode. In this model, any changes in the source code will be reflected immediately upon save
 
 ## Ports
 - app lives on http://localhost:8080/graphql
