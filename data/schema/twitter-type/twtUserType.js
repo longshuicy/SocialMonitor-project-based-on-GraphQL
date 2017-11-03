@@ -6,11 +6,7 @@ var {
 	GraphQLInt
 } = require('graphql');
 
-var {
-	fetchTimeline,
-	fetchFollower,
-	fetchFriend
-} = require('../../../API/twitterAPI');
+var twitterAPI = require('../../../API/twitterAPI');
 
 const twtUserType = module.exports = new GraphQLObjectType({
 	name: 'twtUser',
@@ -41,19 +37,19 @@ const twtUserType = module.exports = new GraphQLObjectType({
 						type: new GraphQLList(tweetType),
 						args:{count:{type:GraphQLInt,defaultValue:3}},
 						description: 'Get the timeline of current User',
-						resolve:(user,args) =>fetchTimeline(user,args)
+						resolve:(user,args) =>twitterAPI(resolveName = 'fetchTimeline', id=user.id, args=args)
 					},
 		friends:	{
 						type: new GraphQLList(twtUserType),
 						args:{count:{type:GraphQLInt,defaultValue:3}},
 						description: 'Get a list of followees of current User',
-						resolve:(user,args) => fetchFriend(user,args)
+						resolve:(user,args) => twitterAPI(resolveName='fetchFriend',id=user.id , args=args)
 					},
 		followers:	{	
 						type: new GraphQLList(twtUserType),
 						args:{count:{type:GraphQLInt,defaultValue:3}},
 						description: 'Get a list of followers of current User',
-						resolve:(user,args) => fetchFollower(user,args)
+						resolve:(user,args) => twitterAPI(resolveName='fetchFollower', id=user.id, args = args)
 					}
 	})
 });

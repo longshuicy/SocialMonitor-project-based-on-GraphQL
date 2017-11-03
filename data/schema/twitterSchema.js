@@ -6,11 +6,7 @@ var {
 	GraphQLInt
 } = require('graphql');
 
-var {
-	searchTweet,
-	searchUser,
-	searchGeo
-} = require('./../../API/twitterAPI');
+var twitterAPI = require('./../../API/twitterAPI');
 
 // root
 const twitterQueryType = module.exports = new GraphQLObjectType({
@@ -27,12 +23,14 @@ const twitterQueryType = module.exports = new GraphQLObjectType({
 							defaultValue:3,
 							description:'The number of potential user results to retrieve per page. This value has a maximum of 20.' 
 						},
-				page: 	{ 	type: GraphQLInt,
+				pageNum: 	{ 	type: GraphQLInt,
 							defaultValue:5,
-							description: 'Specifies the page of results to retrieve.' 
+							description: 'madeup field; the aggregated pages' 
 						}
 			},
-			resolve: (_,args) => searchUser(args)
+			//resolve: (twitter,args) => searchUser(twitter.args, args)
+			// redditAPI(headers, resolveName = 'search', id='', args = args)
+			resolve: (_,args) => twitterAPI(resolveName = 'searchUser', id='',args=args)
 		},
 		queryTweet:{
 			type: new GraphQLList(tweetType),
@@ -50,6 +48,14 @@ const twitterQueryType = module.exports = new GraphQLObjectType({
 										Defaults to 15. This was formerly the “rpp” parameter in the 
 										old Search API.`
 						},
+				pages: 	{
+							type:GraphQLInt,
+							defaultValue:3,
+							description:`This is not in the original twitter api. This fields is the iterator that append new pages
+										to the search. if you specify the number of pages you want to go through, you will get the 
+										amount of tweets = count * pages; detail check out API/twitterAPI.js and the max_id,since_id fields
+										in twitter restful API documentation.`
+				},
 				geocode:{
 							type:GraphQLString,
 							description: '37.781157 -122.398720 1mi'
@@ -65,6 +71,7 @@ const twitterQueryType = module.exports = new GraphQLObjectType({
 							},
 				locale:		{  
 								type:GraphQLString,
+								defaultValue:'en',
 								description:`Specify the language of the query you are sending 
 											(only ja is currently effective). This is intended for 
 											language-specific consumers and the default should work in 
@@ -76,9 +83,14 @@ const twitterQueryType = module.exports = new GraphQLObjectType({
 											be formatted as YYYY-MM-DD. Keep in mind that the search index 
 											has a 7-day limit. In other words, no tweets will be found 
 											for a date older than one week.`
-							}			
+							},
+				lang:		{
+								type:GraphQLString,
+								defaultValue:'en'
+							}
 			},
-			resolve: (_,args) => searchTweet(args)
+			//resolve: (_,args) => searchTweet(args)
+			resolve: (_,args) => twitterAPI(resolveName = 'searchTweet', id='',args=args)
 		},
 		queryGeo: {
 			type: new GraphQLList(twtGeoType),
@@ -126,7 +138,8 @@ const twitterQueryType = module.exports = new GraphQLObjectType({
 								intend to display to the user here.`
 							}
 			},
-			resolve: (_,args) => searchGeo(args)
+			//resolve: (_,args) => searchGeo(args)
+			resolve: (_,args) => twitterAPI(resolveName = 'searchGeo', id='',args=args)
 		}
 	})
 });
@@ -134,5 +147,3 @@ const twitterQueryType = module.exports = new GraphQLObjectType({
 const twtUserType = require('./twitter-type/twtUserType');
 const tweetType = require('./twitter-type/twtTweetType');
 const twtGeoType = require('./twitter-type/twtGeoType');
-
-module.exports = twitterQueryType;

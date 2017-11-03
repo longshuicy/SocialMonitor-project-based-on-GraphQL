@@ -6,7 +6,7 @@ var {
 	GraphQLInt
 } = require('graphql');
 
-var fetchRetweet = require('../../../API/twitterAPI').fetchRetweet;
+var twitterAPI = require('../../../API/twitterAPI');
 
 const tweetType = module.exports = new GraphQLObjectType({
 	name: 'tweet',
@@ -28,7 +28,7 @@ const tweetType = module.exports = new GraphQLObjectType({
 							type: new GraphQLList(retweetType),
 							description: 'Get a list of retweets',
 							args: {count:{type:GraphQLInt,defaultValue:3}},
-							resolve: (tweet,args) => fetchRetweet(tweet,args)
+							resolve: (tweet,args) => twitterAPI('fetchRetweet', id=tweet.id,args=args)
 						}
 	})
 });

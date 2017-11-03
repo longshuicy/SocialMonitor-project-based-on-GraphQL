@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-	"test": "nodemon ./bin/www"
+    "test": "nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
@@ -24,6 +24,7 @@
     "morgan": "~1.7.0",
     "node-fetch": "^1.6.3",
     "node-flickr": "^1.0.0",
+    "nodemon": "^1.12.1",
     "nodeweibo": "^2.0.4",
     "promise": "^7.1.1",
     "pug": "~2.0.0-beta10",
