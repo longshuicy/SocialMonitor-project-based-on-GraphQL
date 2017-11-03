@@ -18,7 +18,8 @@
 ![gif](interface.gif)
 
 ## Query Examples
-```{
+```
+{
   twitter{
     
     queryUser(q:"trump",count:20,pageNum:1) {
@@ -38,6 +39,13 @@
           description
         }
       }
-}```
+}
+```
 
 ## Readings
+- GraphQL blogs: http://graphql.org/blog/
+- GraphQL documentations: http://graphql.org/learn/
+- Zero to GraphQL in 30 Minutes: https://www.youtube.com/watch?v=UBGzsb2UkeY&t=18s
+- NODEJS-Express version of GraphQL: https://www.npmjs.com/package/express-graphql
+- Why GraphQL is the future: https://dev-blog.apollodata.com/why-graphql-is-the-future-3bec28193807
+
