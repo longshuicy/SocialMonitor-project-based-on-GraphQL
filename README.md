@@ -1,4 +1,4 @@
-# SocialMonitorGraphQL -- ocialMonitor project based on GraphQL
+# SocialMonitor project based on GraphQL
 
 ## Prerequisite
 - Install NodeJS : https://nodejs.org/en/
