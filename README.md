@@ -15,45 +15,47 @@
 - In the browser, access GraphiQL interface by put http://localhost:8080/graphql in the URL
 - If you want to write a script to query that enpoint, please refer to "server over http": http://graphql.org/learn/serving-over-http/. My example of code is written in Javascirpt, however you can choose whatever language you're familar with: 
 ```
-var headers = {
-    'Accept': 'application/json',
-    'Content-Type':'application/json'
+var headers = { 
+	'Accept': 'application/json',
+	'Content-Type':'application/json'
 } 
 
 var query = `{
-							  twitter{
-								queryUser(q:"` + keyword + `", count:20){
-								  author_id
-								  author_id_str
-								  name
-								  screen_name
-								  description
-								  author_created_at
-								  profile_image_url
-								  profile_banner_url
-								  url
-								  location
-								  tweets_count
-								  followers_count
-								  friends_count
-								  listed_count
-								  favourites_count
-								  statuses_count
-								  time_zone
-								  protected
-								  verified
-								  is_translator
-								  contributors_enabled
-								  geo_enabled
-								  lang
-								}
-							  }
-							}`;
+  twitter{
+	queryUser(q:"` + keyword + `", count:20){
+	  author_id
+	  author_id_str
+	  name
+	  screen_name
+	  description
+	  author_created_at
+	  profile_image_url
+	  profile_banner_url
+	  url
+	  location
+	  tweets_count
+	  followers_count
+	  friends_count
+	  listed_count
+	  favourites_count
+	  statuses_count
+	  time_zone
+	  protected
+	  verified
+	  is_translator
+	  contributors_enabled
+	  geo_enabled
+	  lang
+	}
+  }
+}`;
 
-fetch('http://localhost:8080/graphql', {method:'POST',
-												                headers:headers,
-												                body:JSON.stringify({"query":query })
-}).then(function(response){
+fetch('http://localhost:8080/graphql',
+	{method:'POST',
+		headers:headers,
+		body:JSON.stringify({"query":query })
+	}
+).then(function(response){
   return response.text();
 }).then(function(responseBody){
 	// responseObj is the returned data in a stringify format
