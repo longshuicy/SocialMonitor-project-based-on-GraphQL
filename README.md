@@ -58,7 +58,7 @@ fetch('http://localhost:8080/graphql',
 ).then(function(response){
   return response.text();
 }).then(function(responseBody){
-	// responseObj is the returned data in a stringify format
+  // responseObj is the returned data in a stringify format
   // you can do whatever you want to do with this variable: 
   // save it, parse it, put it into a database...
   console.log(responseObj);
