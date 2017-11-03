@@ -18,5 +18,28 @@
 ![gif](interface.gif)
 
 ## Query Examples
+```{
+	twitter{
+    queryUser(q:"trump",count:20,pageNum:1) {
+      id
+      screen_name
+      description
+    }
+  }```
+  ```{
+    twitter{
+      queryTweet(q:"trump",count:100,pages:1){
+        id
+        text
+        created_at
+        retweet_count
+        user{
+          id
+          screen_name
+          description
+        }
+      }
+    }
+} ```
 
 ## Readings
