@@ -3,7 +3,7 @@
 ## Prerequisite
 - [x] Install NodeJS : https://nodejs.org/en/
 - [x] In the command line tool, ```cd``` into this project folder and type ```npm install``` to install all the dependency library
-- [x] place ```.env``` file (which contains all the social media credentials and access tokens) in the root of this app's directory. Sometimes when you adding this file to your folder, your operating system will automatically overwrite the filename to ```ENV``` instead of ```.env```, please double check to make sure. __Please subtitute the tokens and secrets with your own, and DO NOT share it with anyone else.__ https://drive.google.com/file/d/0B8JvcWvoUuxaQnRIN2RyUHdibEk/view?usp=sharing
+- [x] place ```.env``` file (which contains all the social media credentials and access tokens) in the root of this app's directory. Sometimes when you adding this file to your folder, your operating system will automatically overwrite the filename to ```ENV``` or ```ATTXXXX.env``` instead of ```.env```, please double check to make sure. __Please subtitute the tokens and secrets with your own, and DO NOT share it with anyone else.__ https://drive.google.com/file/d/0B8JvcWvoUuxaQnRIN2RyUHdibEk/view?usp=sharing
 
 ## Run
 - ```npm start``` to invoke the production mode.
